@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Supphawit Sripusitto - Article</title>
+<style>
+    body{font-family: Arial, sans-serif;}
+</style>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Supphawit Sripusitto Portfolio</h1>
+    <h3 style="text-align: center;">I used $0 to create this site, while AI wrapper will used $20 with unknown problems.</h3>
+    <div style="text-align: end;"><a href="../../index.html">TH</a> | <a href="../../en/index.html">EN</a></div>
+    <hr>
+    <h2>Menu</h2>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../Project.html">Projects</a></li>
+    <li><a href="../Article.html">Articles</a></li>
+    <li><a href="../../files/Resume.pdf">Resume</a></li>
+    <hr>
+    <h2>Cylindrical Pipe Notching without Notching Machine</h2>
+    <p>
+        The pipe structure is one of the most cheapest structure. However, cylindrical pipes welding other than parallel angle
+        needs to minimize the welding thickness (not accounted for repeating the welding) for maximum tensile stress. That is we
+        need to cut the tip of the pipe to minimize void between each pipes. In the present, pipe notching is convinient by automatic
+        notching machine which is cylindrical shaped sandpaper milling or controlled laser cutter. Also, both are expensive.
+        Nevertheless, many DIY technician use rough DIY flat pattern. This activated my curiosity. Why don't we just make it
+        as precise as possible and use it forever. Additionally, the DIY flat pattern has some limitations when angle is not
+        the standard like 45° or 90° and some non-negligible error when pipe diameter is not the same. This drives me to create
+        a unified tool which could create every possible flat pattern for every situation for pipe notching. <br><br>
+
+        First, we need to imagine how pipes are assembled in 3D. We'll see 2 cylinders intersecting at the parametric curve
+        which is parametrized by angular coordinate. Then, we define XYZ cartesian coordinate and let R denotes the inclined cylinder's
+        radius. Similarly, r denotes the vertical cylinder radius. For the analysis convinient, we define the UVW coordinate for
+        inclined cylinder governing equation as below.
+
+        <div style="text-align: center;">
+            <img src="../../img/IntersectCylinder.png" alt="Intersection cylinders describe the intersection line of pipes" style="width: 30vw; height: auto;" loading="lazy">
+        </div>
+
+        We get two governing equations for each cylinders as
+        $$
+        \begin{cases}
+        x^2 + y^2 = r^2\\\\
+        u^2 + v^2 = R^2
+        \end{cases}
+        $$
+        Observe that these two equations' coordinates are mismatch. Hence, we need to use the concept of linear transformation to find
+        the relation between XYZ and UVW. Obviously, U and X are the same basis. Thus, we need to consider just YZ with UW which is simple
+        trigonometry problems as below.
+        
+        <div style="text-align: center;">
+            <img src="../../img/CoordinateTransformation.png" alt="Coordinate Transformation" style="width: 30vw; height: auto;" loading="lazy">
+        </div>
+
+        $$
+        \begin{pmatrix}
+        v\\w
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+        \cos \varphi & -\sin \varphi\\
+        \sin \varphi & \cos \varphi
+        \end{pmatrix}
+        \begin{pmatrix}
+        y\\z
+        \end{pmatrix}
+        $$
+        Therefore, the transformed system is
+        $$
+        \begin{cases}
+        x^2 + y^2 = r^2\\\\
+        x^2 + (y\cos\varphi - z\sin\varphi)^2 = R^2
+        \end{cases}
+        $$
+        Since we want to project the curve to flat pattern, it might be more convinient if we use polar coordinate. Luckily, the first
+        equation is the same as polar transformation. Hence, we just transform XY with this criterion to the second equation with some
+        manipulation to get the solution as below.
+        $$
+        \begin{align*}
+        (y\cos\varphi - z\sin\varphi)^2 &= R^2-x^2\\
+        y\cos\varphi - z\sin\varphi &= \pm\sqrt{R^2-x^2}\\
+        z\sin\varphi &= y\cos\varphi \pm\sqrt{R^2-x^2}\\
+        &= r\sin\theta\cos\varphi \pm\sqrt{R^2-r^2\cos^2\theta}\\\\
+        z &= r\cot\varphi\sin\theta \pm\csc\varphi\sqrt{R^2-r^2\cos^2\theta}
+        \end{align*}
+        $$
+        Though the analysis ended, there's an uncleared problem to solve. "How can we consider the plus-minus sign?". This leads us back
+        to the equation which has only plus-minus sign term in RHS. This equation tell us that the plus-minus sign determine whether LHS is
+        negative or positive. As z and sine are positive, the final plus-minus sign will be positive (plus-minus sign is swapped before the
+        final step). That is the critical point is where y = 0 or the angular coordinate is at 0° or 180°. However, we can adjust some sinusoidal
+        phase for convinient as I shift it for 90°. The result where I use Desmos which is free and easy to use program with R/r = 1, I got as below.
+        <br><br>
+
+        <div style="text-align: center;">
+            <img src="../../img/Desmos.png" alt="Desmos" style="width: 30vw; height: auto;" loading="lazy">
+        </div>
+
+        <br>In addition, there's some beauty of the maths when we divide along the equation with R. We'll get z/R varies with r/R.
+        That is whether we scale the pipe size to any value in the same r/R, we still scale this pattern without needs to re-analyze.
+        (Google Docs or Canvas could perform this perfectly.)
+
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supphawit Sripusitto - Project</title>
+    <style>
+        body{font-family: Arial, sans-serif;}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Supphawit Sripusitto Portfolio</h1>
+    <h3 style="text-align: center;">I used $0 to create this site, while AI wrapper will used $20 with unknown problems.</h3>
+    <div style="text-align: end;"><a href="../index.html">TH</a> | <a href="../en/index.html">EN</a></div>
+    <hr>
+    <h2>Menu</h2>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="Project.html">Projects</a></li>
+    <li><a href="Article.html">Articles</a></li>
+    <li><a href="../files/Resume.pdf">Resume</a></li>
+    <hr>
+    <h2><a href="https://github.com/SupSripusitto/Journey-to-Thermodynamics-Simulation" target="_blank">Argon Molecular Simulation</a></h2>
+    <div style="text-align: center;">
+        <img src="../img/LJ.png" alt="Lennard-Jones Simulation" style="width: 30vw; height: auto;" loading="lazy">
+    </div>
+    <p>
+        This project is my hobby for learning about fundamental of molecular simulation to predict some properties of the species. I
+        always believe that the frontier knowledge can't be made without strong first principles understanding. Therefore, I started this
+        project by considering ideal gas. In this step, I derived all equation of motions for every particles, boundary collision motions
+        and temperature and pressure by statistical mechanics. This experiment verified the gas constant value by finding Boltzmann constant
+        with the resulting about 99.98% of accuracy. Then, I developed real gas simulation using argon as reference data, since argon is
+        monoatomic gas. This step used Lennard-Jones atomic potential model; therefore, we need to rewrite integration method from Euler to
+        Velocity Verlet Integration. Also, I added thermostat to control the system to be in NVT ensemble instead of NVE ensemble. I also
+        thought that for larger scale might need GPU computing. However, in this case, 1000-10000 particles is enough in Monte-Carlo; hence,
+        GPU programming is unnecessary since it will send data to VRAM instead of CPU with faster RAM.
+    </p>
+    <p>Skills : Python, NumPy, Matplotlib, PyTorch</p>
+    <p>Acquired : Statistical Mechanics, Molecular Dynamics, Velocity Verlet Integration, GPU Programming</p>
+    <h2><a href="https://github.com/SupSripusitto/Inverted-Pendulum-Simulation" target="_blank">Inverted Pendulum Control Simulation</a></h2>
+    <div style="text-align: center;">
+        <img src="../img/InversePendulum.png" alt="Inverted Pendulum Dynamics" style="width: 30vw; height: auto;" loading="lazy">
+    </div>
+    <p>
+        This is my another hobby for learning about unstable dynamical system which is hard to control. First, I analyzed the system
+        using non-inertial frame mechanics to develop the model. Then, RK4 has been used to simulate instead of executable package,
+        since the package is hard to track real time manipulated variables while controlling. Next, PID control loop was developed 
+        by controlling the external force exert to the pendulum base until it upright on the origin. Therefore, I need to use the cascaded
+        PID instead of the single loop to control both pendulum angle and position with only one manipulated variable as external force.
+        However, after some experiments for tuning by Ziegler-Nichols method, the pendulum still unstable. After trying linearize the model
+        to find root locuses, the pendulum still swing far from the setpoint. By trials & (mostly) error of tuning, I could stabilize the 
+        pendulum with some random gain and override control to trim pendulum angle setpoint from the outer loop as it could be controled.
+        Though the pendulum has been stabilized, it's stable at only small angle far from the upright position. Hence, I found that PID
+        controller has a lot of limitation in low control robustness and extremely high control efforts. 
+    </p>
+    <p>Skills : Python, NumPy, Matplotlib</p>
+    <p>Acquired : Non-inertial frame mechanics, PID tuning, Root Locus, Controller performance</p>
+    <h2><a href="https://github.com/SupSripusitto/Separation-Processes" target="_blank">Absorber McCabe-Thiele Simulation Package</a></h2>
+    <div style="text-align: center;">
+        <img src="../img/McCabe-Thiele.png" alt="Lennard-Jones Simulation" style="width: 30vw; height: auto;" loading="lazy">
+    </div>
+    <p>
+        This project is inspired by the homework where I need to calculate the absorber stages by performing McCabe-Thiele between the
+        micrometer area between graphs. The homework also activated my curiosity with a question "In the classroom we design it. In the real world
+        we operate it. How can we determine the concentration while operating?" (Also, how to do this homework with human's eyes.).
+        I realized that in the operation and design have some intersections, the conservation of mass and thermodynamics can't be violated.
+        Therefore, I planned to develop Python package to calculate all of this instead of Aspen which is large, expensive, and black boxed.
+        In this package, pinch point is automatically calculated. We can choose whether to put recovery or purity. Additionally, this package
+        is powered by Newton's method to find the exact all composition which is analyzed by my graphical intuition. The resulting package is
+        light-weight, fast, and precise to the machine epsilon without divergence problem (I tested in some extreme conditions).
+    </p>
+    <p>Skills : Python, NumPy, Matplotlib</p>
+    <p>Acquired : Graphical Intuition for Separation Processes</p>
+    <h2>Senior Project (a.k.a. Undergraduate Research)</h2>
+    <p>In the process (Keywords : Control, Crystallization, Pharmaceutical, Deep Learning, *Secret Frontier Math*)</p>
+</body>
+</html>
