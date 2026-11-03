@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1 style="text-align: center;">Supphawit Sripusitto Portfolio</h1>
-    <h3 style="text-align: center;">I used $0 to create this site, while AI wrapper will used $20 with unknown problems.</h3>
+    <h3 style="text-align: center;">$0 by hands, $20 by AI, when it breaks, do you know the solution?</h3>
     <div style="text-align: end;"><a href="../index.html">TH</a> | <a href="../en/index.html">EN</a></div>
     <hr>
     <h2>Menu</h2>
@@ -26,7 +26,7 @@
         always believe that the frontier knowledge can't be made without strong first principles understanding. Therefore, I started this
         project by considering ideal gas. In this step, I derived all equation of motions for every particles, boundary collision motions
         and temperature and pressure by statistical mechanics. This experiment verified the gas constant value by finding Boltzmann constant
-        with the resulting about 99.98% of accuracy. Then, I developed real gas simulation using argon as reference data, since argon is
+        with the resulting about 99.98% of accuracy. Then, I developed real gas simulation using argon as reference data, since argon is a
         monoatomic gas. This step used Lennard-Jones atomic potential model; therefore, we need to rewrite integration method from Euler to
         Velocity Verlet Integration. Also, I added thermostat to control the system to be in NVT ensemble instead of NVE ensemble. I also
         thought that for larger scale might need GPU computing. However, in this case, 1000-10000 particles is enough in Monte-Carlo; hence,
@@ -39,14 +39,14 @@
         <img src="../img/InversePendulum.png" alt="Inverted Pendulum Dynamics" style="width: 30vw; height: auto;" loading="lazy">
     </div>
     <p>
-        This is my another hobby for learning about unstable dynamical system which is hard to control. First, I analyzed the system
+        This is another hobby project for learning about unstable dynamical system which is hard to control. First, I analyzed the system
         using non-inertial frame mechanics to develop the model. Then, RK4 has been used to simulate instead of executable package,
         since the package is hard to track real time manipulated variables while controlling. Next, PID control loop was developed 
         by controlling the external force exert to the pendulum base until it upright on the origin. Therefore, I need to use the cascaded
         PID instead of the single loop to control both pendulum angle and position with only one manipulated variable as external force.
         However, after some experiments for tuning by Ziegler-Nichols method, the pendulum still unstable. After trying linearize the model
-        to find root locuses, the pendulum still swing far from the setpoint. By trials & (mostly) error of tuning, I could stabilize the 
-        pendulum with some random gain and override control to trim pendulum angle setpoint from the outer loop as it could be controled.
+        to find root locus, the pendulum still swing far from the setpoint. By trial & (mostly) error of tuning, I could stabilize the 
+        pendulum with some random gain and override control to trim pendulum angle setpoint from the outer loop as it could be controlled.
         Though the pendulum has been stabilized, it's stable at only small angle far from the upright position. Hence, I found that PID
         controller has a lot of limitation in low control robustness and extremely high control efforts. 
     </p>
